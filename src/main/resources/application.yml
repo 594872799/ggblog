@@ -1,6 +1,28 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost/db_mblog?useSSL=false&characterEncoding=utf8&serverTimezone=GMT%2B8
+    url: jdbc:mysql://localhost/ggbolg?useSSL=false&characterEncoding=utf8&serverTimezone=GMT%2B8
     username: root
     password: 123456
+  freemarker:
+    suffix: .ftl
+    content-type: text/html
+    charset: UTF-8
+    cache: false
+    template-loader-path:
+      - classpath:/templates
+    mvc:
+      static-path-pattern: /static/**
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  typeAliasesPackage: com.liangwc.ggblog.entity
+  #驼峰下划线转换
+  db-column-underline: true
+  #数据库大写下划线转换
+  capital-mode: true
+  global-config:
+    id-type: 0
+    field-strategy: 1
+  configuration:
+    safe-row-bounds-enabled: true
+    map-underscore-to-camel-case: true
