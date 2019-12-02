@@ -5,39 +5,45 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
  * <p>
- *
+ * 
  * </p>
  *
  * @author liangwc
- * @since 2019-11-29
+ * @since 2019-12-02
  */
 @Data
 @Accessors(chain = true)
-public class GgMenu implements Serializable {
+public class GgSetting implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
     /**
-     * 菜单名称
+     * github链接
      */
-    private String name;
+    private String githubUrl;
     /**
-     * 菜单跳转的url
+     * qq帐号
      */
-    private String url;
+    private String qqNumber;
     /**
-     * 菜单权重
+     * 微博链接
      */
-    private Integer priority;
+    private String weiboUrl;
     /**
-     * 图标
+     * 邮箱地址
      */
-    private String icon;
-    private String target;
+    private String emailAddress;
+    /**
+     * 用户
+     */
+    private Integer userId;
+
+
 }

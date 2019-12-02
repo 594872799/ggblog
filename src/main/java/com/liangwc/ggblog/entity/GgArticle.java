@@ -1,9 +1,11 @@
 package com.liangwc.ggblog.entity;
 
-import java.io.Serializable;
-
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+
+import java.util.Date;
+import java.io.Serializable;
+
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -13,31 +15,24 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author liangwc
- * @since 2019-11-29
+ * @since 2019-12-02
  */
 @Data
 @Accessors(chain = true)
-public class GgMenu implements Serializable {
+public class GgArticle implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
     /**
-     * 菜单名称
+     * 正文
      */
-    private String name;
+    private String content;
     /**
-     * 菜单跳转的url
+     * 创建时间
      */
-    private String url;
-    /**
-     * 菜单权重
-     */
-    private Integer priority;
-    /**
-     * 图标
-     */
-    private String icon;
-    private String target;
+    private Date createTime;
+
+
 }

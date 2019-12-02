@@ -1,7 +1,7 @@
 package com.liangwc.ggblog.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.liangwc.ggblog.entity.GgMenu;
+import com.liangwc.ggblog.entity.GgSetting;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -10,9 +10,9 @@ import org.apache.ibatis.annotations.Mapper;
  * </p>
  *
  * @author liangwc
- * @since 2019-11-29
+ * @since 2019-12-02
  */
 @Mapper
-public interface GgMenuMapper extends BaseMapper<GgMenu> {
+public interface GgSettingMapper extends BaseMapper<GgSetting> {
 
 }

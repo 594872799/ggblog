@@ -1,13 +1,12 @@
 package com.liangwc.ggblog.util;
 
+import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
 import com.baomidou.mybatisplus.generator.config.GlobalConfig;
 import com.baomidou.mybatisplus.generator.config.PackageConfig;
 import com.baomidou.mybatisplus.generator.config.StrategyConfig;
-import com.baomidou.mybatisplus.generator.config.rules.DbType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
-
 
 /**
  * @author liangweicheng
@@ -17,7 +16,7 @@ public class Generator {
     public static void main(String[] args) {
         String packageName = "com.liangwc.ggblog";
         boolean serviceNameStartWithI = false;
-        generateByTables(serviceNameStartWithI, packageName, "liangwc", "ggbolg", "gg_article_info");
+        generateByTables(serviceNameStartWithI, packageName, "liangwc", "ggbolg", "gg_article");
     }
 
     private static void generateByTables(boolean serviceNameStartWithI, String packageName, String auth, String database, String... tableNames) {
@@ -32,9 +31,7 @@ public class Generator {
         StrategyConfig strategyConfig = new StrategyConfig();
         strategyConfig.setCapitalMode(true)
                 .setEntityLombokModel(true)
-                .setDbColumnUnderline(true)
                 .setNaming(NamingStrategy.underline_to_camel)
-                .setSuperMapperClass("com.liangwc.ggblog.mapper.BaseMapper")
                 .setInclude(tableNames);
         config.setActiveRecord(false)
                 .setAuthor(auth)

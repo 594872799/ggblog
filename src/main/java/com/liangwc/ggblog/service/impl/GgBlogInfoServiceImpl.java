@@ -1,9 +1,9 @@
 package com.liangwc.ggblog.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.liangwc.ggblog.entity.GgBlogInfo;
 import com.liangwc.ggblog.mapper.GgBlogInfoMapper;
 import com.liangwc.ggblog.service.GgBlogInfoService;
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**

@@ -1,7 +1,9 @@
 package com.liangwc.ggblog.mapper;
 
-import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.liangwc.ggblog.entity.GgArticleInfo;
+import com.liangwc.ggblog.vo.ArticleVo;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -14,5 +16,5 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface GgArticleInfoMapper extends BaseMapper<GgArticleInfo> {
-
+    Page<ArticleVo> selectArticlePage(Page page);
 }

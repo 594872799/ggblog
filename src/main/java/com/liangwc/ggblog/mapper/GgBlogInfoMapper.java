@@ -1,6 +1,6 @@
 package com.liangwc.ggblog.mapper;
 
-import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.liangwc.ggblog.entity.GgBlogInfo;
 import org.apache.ibatis.annotations.Mapper;
 

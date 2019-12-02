@@ -20,21 +20,21 @@
         <#--Font Awesome 图标库-->
         <link href="https://cdn.bootcss.com/font-awesome/5.10.2/css/all.min.css" rel="stylesheet">
         <#--主页添加的CSS-->
-        <#if is_index?? || is_search?? || is_category?? || is_tag?? || is_sheet??>
-            <link rel="stylesheet" href="${static!}/source/css/index.css">
-        </#if>
+<#--        <#if is_index?? || is_search?? || is_category?? || is_tag?? || is_sheet??>-->
+            <link rel="stylesheet" href="${static!}/css/index.css">
+<#--        </#if>-->
         <#--归档界面添加的CSS-->
         <#if is_archives?? || is_tags?? || is_categories??>
-            <link rel="stylesheet" href="${static!}/source/css/time-line.css">
+            <link rel="stylesheet" href="${static!}/css/time-line.css">
         </#if>
         <#if is_category??>
-            <link rel="stylesheet" href="${static!}/source/css/category.css">
+            <link rel="stylesheet" href="${static!}/css/category.css">
         </#if>
         <#--文章界面需要引入的CSS-->
         <#if is_post??>
         <#--Github MarkDown的引入-->
-            <link rel="stylesheet" href="${static!}/source/css/github-markdown.css">
-            <link rel="stylesheet" href="${static!}/source/css/post.css">
+            <link rel="stylesheet" href="${static!}/css/github-markdown.css">
+            <link rel="stylesheet" href="${static!}/css/post.css">
         <#--代码高亮用到的CSS-->
             <link href="https://cdn.bootcss.com/highlight.js/9.15.10/styles/github.min.css" rel="stylesheet">
             <link href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
@@ -43,14 +43,14 @@
         <#--日志界面的样式-->
         <#if is_journal??>
             <link href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
-            <link rel="stylesheet" href="${static!}/source/css/journals.css">
+            <link rel="stylesheet" href="${static!}/css/journals.css">
         </#if>
         <#if is_sheet??>
-            <link rel="stylesheet" href="${static!}/source/css/sheet.css">
+            <link rel="stylesheet" href="${static!}/css/sheet.css">
             <link href="https://cdn.bootcss.com/social-share.js/1.0.16/css/share.min.css" rel="stylesheet">
         </#if>
         <#--页面公用的CSS-->
-        <link rel="stylesheet" href="${static!}/source/css/style.css">
+        <link rel="stylesheet" href="${static!}/css/style.css">
 
         <#--公共 head 代码，包含：Favicon，站点验证代码-->
 <#--        <@global.head />-->
@@ -72,13 +72,13 @@
     <#include "footer.ftl">
 
     <#--全局的JavaScript脚本-->
-    <script type="text/javascript" src="${static!}/source/js/index.js"></script>
-    <script type="text/javascript" src="${static!}/source/js/navbar.js"></script>
+    <script type="text/javascript" src="${static!}/js/index.js"></script>
+    <script type="text/javascript" src="${static!}/js/navbar.js"></script>
     <#if is_archives?? || is_tags?? || is_categories??>
-        <script type="text/javascript" src="${static!}/source/js/navigation.js"></script>
+        <script type="text/javascript" src="${static!}/js/navigation.js"></script>
     </#if>
     <#if is_search??>
-        <script type="text/javascript" src="${static!}/source/js/search.js"></script>
+        <script type="text/javascript" src="${static!}/js/search.js"></script>
     </#if>
     <#-- 额外配置功能-->
     <#if is_post?? || is_sheet??>
@@ -103,14 +103,14 @@
         <script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
         <script src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-        <script type="text/javascript" src="${static!}/source/js/post.js"></script>
+        <script type="text/javascript" src="${static!}/js/post.js"></script>
     </#if>
     <#if is_journal??>
         <script src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-        <script type="text/javascript" src="${static!}/source/js/journals.js"></script>
+        <script type="text/javascript" src="${static!}/js/journals.js"></script>
     </#if>
     <#if is_sheet??>
-        <script type="text/javascript" src="${static!}/source/js/sheet.js"></script>
+        <script type="text/javascript" src="${static!}/js/sheet.js"></script>
     </#if>
     <div id="backTop" class="back-top">
         <span><i class="fas fa-caret-up"></i></span>

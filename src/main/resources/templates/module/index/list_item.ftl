@@ -1,4 +1,4 @@
-<#--主页的一个文章列表项ok-->
+    <#--主页的一个文章列表项ok-->
 <#macro listItem post>
 <#--一个列表项-->
     <div class="list-item px-1 py-4 mt-xl-0 mt-3 border-bottom">

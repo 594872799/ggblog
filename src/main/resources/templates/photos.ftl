@@ -3,7 +3,7 @@
 <@layout title="个人相册 | ${options.blog_title!}"
 keywords="${options.seo_keywords!}"
 description="${options.seo_description!}">
-    <link rel="stylesheet" href="${static!}/source/css/photos.css">
+    <link rel="stylesheet" href="${static!}/css/photos.css">
     <link href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
 <#--所有的图片先加载到这个位置，但是这个位置默认隐藏的-->
     <#include "module/photos/photo_item.ftl"/>
@@ -28,4 +28,4 @@ description="${options.seo_description!}">
     </@photoTag>
 </@layout>
 <script src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-<script src="${static!}/source/js/photos.js"></script>
+<script src="${static!}/js/photos.js"></script>

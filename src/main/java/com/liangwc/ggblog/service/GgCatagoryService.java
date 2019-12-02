@@ -1,7 +1,7 @@
 package com.liangwc.ggblog.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.liangwc.ggblog.entity.GgCatagory;
-import com.baomidou.mybatisplus.service.IService;
 
 /**
  * <p>

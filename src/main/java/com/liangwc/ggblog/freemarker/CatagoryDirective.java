@@ -26,14 +26,14 @@ public class CatagoryDirective implements TemplateDirectiveModel {
         String method = tms.getAsString();
         switch (method) {
             case "list": {
-                List<GgCatagory> catagories = catagoryService.selectList(null);
+                List<GgCatagory> catagories = catagoryService.list(null);
                 DefaultObjectWrapperBuilder builder = new DefaultObjectWrapperBuilder(Configuration.VERSION_2_3_25);
                 environment.setVariable("categories", builder.build().wrap(catagories));
                 templateDirectiveBody.render(environment.getOut());
                 break;
             }
             case "count": {
-                int count = catagoryService.selectCount(null);
+                int count = catagoryService.count(null);
                 DefaultObjectWrapperBuilder builder = new DefaultObjectWrapperBuilder(Configuration.VERSION_2_3_25);
                 environment.setVariable("count", builder.build().wrap(count));
                 templateDirectiveBody.render(environment.getOut());

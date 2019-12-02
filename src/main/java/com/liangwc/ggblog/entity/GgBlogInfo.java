@@ -1,10 +1,8 @@
 package com.liangwc.ggblog.entity;
 
-import com.baomidou.mybatisplus.enums.IdType;
-import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
-
-import com.baomidou.mybatisplus.annotations.Version;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

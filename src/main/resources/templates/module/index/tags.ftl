@@ -1,6 +1,6 @@
 <#--主页的标签部分ok-->
 <@tagTag method="list">
-    <#if tags?? && tags?size gt 0>
+    <#if tagMap??>
         <section id="tags" class="mt-4 mb-5 bg-white">
             <div class="card">
                 <div class="card-header">
@@ -8,11 +8,11 @@
                     所有标签
                 </div>
                 <div class="card-body">
-                    <#list tags as tag>
+                    <#list tagMap?keys as key>
                         <div class="tag">
-                            <a href="/tags/${tag.slugName!}" class="text-muted">
-                                <span class="tag-left">${tag.name!}</span>
-                                <span class="tag-right">${tag.postCount!}</span>
+                            <a href="/tags/${key}" class="text-muted">
+                                <span class="tag-left">${key}</span>
+                                <span class="tag-right">${tagMap[key]}</span>
                             </a>
                         </div>
                     </#list>

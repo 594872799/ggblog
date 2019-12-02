@@ -1,14 +1,17 @@
 package com.liangwc.ggblog.service.impl;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.liangwc.ggblog.entity.GgArticleInfo;
 import com.liangwc.ggblog.mapper.GgArticleInfoMapper;
 import com.liangwc.ggblog.service.GgArticleInfoService;
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.liangwc.ggblog.vo.ArticleVo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
  * <p>
- *  服务实现类
+ * 服务实现类
  * </p>
  *
  * @author liangwc
@@ -16,5 +19,11 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class GgArticleInfoServiceImpl extends ServiceImpl<GgArticleInfoMapper, GgArticleInfo> implements GgArticleInfoService {
+    @Autowired
+    private GgArticleInfoMapper articleInfoMapper;
 
+    @Override
+    public Page<ArticleVo> selectArticlePage(Page page) {
+        return articleInfoMapper.selectArticlePage(page);
+    }
 }

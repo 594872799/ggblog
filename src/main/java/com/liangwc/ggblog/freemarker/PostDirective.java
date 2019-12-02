@@ -1,7 +1,6 @@
 package com.liangwc.ggblog.freemarker;
 
 import com.liangwc.ggblog.service.GgArticleInfoService;
-import com.liangwc.ggblog.service.GgBlogInfoService;
 import freemarker.core.Environment;
 import freemarker.template.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,7 @@ public class PostDirective implements TemplateDirectiveModel {
 
     @Override
     public void execute(Environment environment, Map map, TemplateModel[] templateModels, TemplateDirectiveBody templateDirectiveBody) throws TemplateException, IOException {
-        int count = articleInfoService.selectCount(null);
+        int count = articleInfoService.count(null);
         DefaultObjectWrapperBuilder builder = new DefaultObjectWrapperBuilder(Configuration.VERSION_2_3_25);
         environment.setVariable("count", builder.build().wrap(count));
         templateDirectiveBody.render(environment.getOut());
