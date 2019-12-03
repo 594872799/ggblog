@@ -1,14 +1,14 @@
 <#--主页的左边ok-->
 <#--列表项-->
-<#if (posts.content)?? && posts.content?size gt 0>
+<#if (articlePage.records)?? && articlePage.records?size gt 0>
 <#--左边的文章列表-->
     <#include "list_item.ftl"/>
-    <#list posts.content as post>
+    <#list articlePage.records as post>
         <@listItem post=post />
     </#list>
 <#--分页-->
     <#include "pagination.ftl">
-    <@pagination posts=posts rainbow=rainbow/>
+    <@pagination posts=articlePage />
 <#else>
     <div class="bg-white mt-5 mb-4">
         <div class="d-flex flex-column align-items-center pt-5">

@@ -3,18 +3,25 @@
 <mapper namespace="com.liangwc.ggblog.mapper.GgArticleInfoMapper">
     <resultMap id="articleMap" type="com.liangwc.ggblog.vo.ArticleVo">
         <id column="id" property="id"/>
-        <result column="tile" property="tile"/>
-        <result column="tag" property="tag"/>
+        <result column="title" property="title"/>
         <result column="create_time" property="createTime"/>
+        <result column="vister" property="vister"/>
         <association property="article" javaType="com.liangwc.ggblog.entity.GgArticle">
             <id column="id" property="id"/>
             <result column="content" property="content"/>
             <result column="create_time" property="createTime"/>
         </association>
+        <collection property="tags" ofType="com.liangwc.ggblog.entity.GgTags">
+            <id column="tag_id" property="tagId"/>
+            <result column="tag" property="tag"/>
+            <result column="article_info_id" property="articleInfoId"/>
+        </collection>
     </resultMap>
 
     <select id="selectArticlePage" resultMap="articleMap">
-        SELECT a.id,a.title,a.tag,a.vister,a.create_time,b.content FROM gg_article_info AS a,gg_article AS b WHERE a.article_id = b.id
+        SELECT a.id,a.title,a.vister,a.create_time,b.content,c.tag,c.article_info_id
+        FROM gg_article_info AS a,gg_article AS b,gg_tags AS c
+        WHERE a.article_id = b.id AND a.id = c.article_info_id
     </select>
     <!--    <select id="selectArticlePage" resultType="com.liangwc.ggblog.entity.GgArticleInfo">&ndash;&gt;-->
     <!--            SELECT *-->

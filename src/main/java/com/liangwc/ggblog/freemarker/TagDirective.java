@@ -1,7 +1,7 @@
 package com.liangwc.ggblog.freemarker;
 
-import com.liangwc.ggblog.entity.GgArticleInfo;
-import com.liangwc.ggblog.service.GgArticleInfoService;
+import com.liangwc.ggblog.entity.GgTags;
+import com.liangwc.ggblog.service.GgTagsService;
 import freemarker.core.Environment;
 import freemarker.template.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ import java.util.*;
 @Component
 public class TagDirective implements TemplateDirectiveModel {
     @Autowired
-    private GgArticleInfoService articleInfoService;
+    private GgTagsService tagsService;
 
     @Override
     public void execute(Environment environment, Map map, TemplateModel[] templateModels, TemplateDirectiveBody templateDirectiveBody) throws TemplateException, IOException {
@@ -26,10 +26,10 @@ public class TagDirective implements TemplateDirectiveModel {
 
         switch (method) {
             case "count": {
-                List<GgArticleInfo> articleInfoList = articleInfoService.list(null);
+                List<GgTags> articleInfoList = tagsService.list(null);
                 Set<String> tagSet = new HashSet<>();
-                for (GgArticleInfo articleInfo : articleInfoList) {
-                    String tags = articleInfo.getTag();
+                for (GgTags ggTags : articleInfoList) {
+                    String tags = ggTags.getTag();
                     for (String tag : tags.split(",")) {
                         tagSet.add(tag);
                     }
@@ -41,10 +41,10 @@ public class TagDirective implements TemplateDirectiveModel {
                 break;
             }
             case "list": {
-                List<GgArticleInfo> articleInfoList = articleInfoService.list(null);
+                List<GgTags> tagList = tagsService.list(null);
                 Map<String, Integer> tagMap = new HashMap<>();
-                for (GgArticleInfo articleInfo : articleInfoList) {
-                    String tags = articleInfo.getTag();
+                for (GgTags ggTags : tagList) {
+                    String tags = ggTags.getTag();
                     for (String tag : tags.split(",")) {
                         if (tagMap.containsKey(tag)) {
                             int count = tagMap.get(tag);

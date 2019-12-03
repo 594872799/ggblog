@@ -3,13 +3,13 @@
 <#--一个列表项-->
     <div class="list-item px-1 py-4 mt-xl-0 mt-3 border-bottom">
         <#--文章标题-->
-        <a href="/archives/${post.url!}" class="text-body">
+        <a href="/archives/${post.title!}" class="text-body">
             <h4 class="post-title font-weight-bold text-break">
                 ${post.title!}
             </h4>
         </a>
         <#--文章摘要-->
-        <span class="post-summary mt-4 d-block text-muted text-break">${post.summary!}</span>
+        <span class="post-summary mt-4 d-block text-muted text-break">${post.article.content!}</span>
 
         <small class="mt-4 d-block">
             <#--标签-->
@@ -18,7 +18,7 @@
                     <i class="fas fa-tags mr-1"></i>
                     <#list post.tags as tag>
                         <a class="text-body mr-1"
-                           href="/tags/${tag.slugName!}">${tag.name!}</a>
+                           href="/tags/${tag.tag!}">${tag.tag!}</a>
                     </#list>
                 </span>
             </#if>
@@ -28,7 +28,7 @@
             </span>
             <#--多少次浏览-->
             <span>
-                <i class="fas fa-eye mr-2"></i>${post.visits!}次浏览
+                <i class="fas fa-eye mr-2"></i>${post.vister!}次浏览
             </span>
         </small>
     </div>

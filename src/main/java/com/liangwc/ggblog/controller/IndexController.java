@@ -42,10 +42,8 @@ public class IndexController {
         GgSetting setting = settingService.getById(1);
         model.put("settings", setting);
 
-//        Page<ArticleVo> page = new Page<>(0, 10);
-//        Page<ArticleVo> blogInfoPage = articleInfoService.selectPage(page);
         IPage<ArticleVo> page = articleInfoService.selectArticlePage(new Page<ArticleVo>(1, 10));
-        model.put("page", page);
+        model.put("articlePage", page);
         return "/index";
     }
 

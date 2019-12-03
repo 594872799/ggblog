@@ -39,10 +39,6 @@ public class GgArticleInfo implements Serializable {
      */
     private String title;
     /**
-     * 标签
-     */
-    private String tag;
-    /**
      * 文章状态
      */
     private Integer status;

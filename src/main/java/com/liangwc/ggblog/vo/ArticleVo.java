@@ -1,25 +1,21 @@
 package com.liangwc.ggblog.vo;
 
 import com.liangwc.ggblog.entity.GgArticle;
+import com.liangwc.ggblog.entity.GgArticleInfo;
+import com.liangwc.ggblog.entity.GgTags;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author liangweicheng
  * @date 2019/12/2 14:45
  */
 @Data
-public class ArticleVo {
-    private Integer id;
-
-    private String tile;
-
-    private String tag;
-
-    private Date createTime;
-
-    private Integer vister;
+public class ArticleVo extends GgArticleInfo {
 
     private GgArticle article;
+
+    private List<GgTags> tags;
 }
