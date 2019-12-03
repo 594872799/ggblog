@@ -23,9 +23,9 @@
                 </li>
                 <#--页码部分-->
                 <#list 1..totalPages as index>
-                    <#if index == totalPages>
+                    <#if index == number>
                         <li class="page-item active" aria-current="page">
-                            <a class="page-link" href="javascript:void(0)">${totalPages}<span class="sr-only">${number}</span></a>
+                            <a class="page-link" href="javascript:void(0)">${number}<span class="sr-only">${number}</span></a>
                         </li>
                     <#else>
                         <li class="page-item">

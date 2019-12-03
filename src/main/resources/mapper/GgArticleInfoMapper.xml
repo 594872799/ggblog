@@ -18,5 +18,6 @@
         SELECT a.id,a.title,a.vister,a.create_time,a.tags,b.content
         FROM gg_article_info AS a,gg_article AS b
         WHERE a.article_id = b.article_id
+        ORDER BY a.create_time desc
     </select>
 </mapper>

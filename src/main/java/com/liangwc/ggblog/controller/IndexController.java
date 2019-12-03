@@ -1,6 +1,6 @@
 package com.liangwc.ggblog.controller;
 
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.liangwc.ggblog.entity.GgBlogInfo;
 import com.liangwc.ggblog.entity.GgSetting;
 import com.liangwc.ggblog.entity.GgUser;
@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -44,7 +45,8 @@ public class IndexController {
         GgSetting setting = settingService.getById(1);
         model.put("settings", setting);
 
-        MyPage<ArticleVo> page = articleInfoService.selectArticlePage(new MyPage<ArticleVo>(1, 10));
+        MyPage<ArticleVo> myPage = new MyPage<ArticleVo>(1, 10);
+        MyPage<ArticleVo> page = articleInfoService.selectArticlePage(myPage);
         page.setTotalPage(page.getPages());
         for (ArticleVo vo : page.getRecords()) {
             List<String> tagList = new LinkedList<>();
