@@ -68,4 +68,9 @@ public class GgArticleInfo implements Serializable {
      */
     private Integer vister;
 
+    /**
+     * 标签
+     */
+    private String tags;
+
 }

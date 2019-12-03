@@ -24,7 +24,7 @@ public class GgArticle implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+    private Integer articleId;
     /**
      * 正文
      */

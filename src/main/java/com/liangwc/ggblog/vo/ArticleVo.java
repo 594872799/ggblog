@@ -14,8 +14,7 @@ import java.util.List;
  */
 @Data
 public class ArticleVo extends GgArticleInfo {
+    private List<String> tagList;
 
     private GgArticle article;
-
-    private List<GgTags> tags;
 }

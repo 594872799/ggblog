@@ -20,9 +20,9 @@
                         <a href="/tags" class="text-muted">
                             <span class="tag-left">所有标签</span>
                             <span class="tag-right">
-                            <@postTag method="count">
+                            <@tagTag method="count">
                                 ${count!}
-                            </@postTag>
+                            </@tagTag>
                         </span>
                         </a>
                     </div>

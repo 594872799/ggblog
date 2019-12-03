@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.liangwc.ggblog.entity.GgArticleInfo;
 import com.liangwc.ggblog.mapper.GgArticleInfoMapper;
 import com.liangwc.ggblog.service.GgArticleInfoService;
+import com.liangwc.ggblog.util.MyPage;
 import com.liangwc.ggblog.vo.ArticleVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,7 @@ public class GgArticleInfoServiceImpl extends ServiceImpl<GgArticleInfoMapper, G
     private GgArticleInfoMapper articleInfoMapper;
 
     @Override
-    public Page<ArticleVo> selectArticlePage(Page page) {
+    public MyPage<ArticleVo> selectArticlePage(Page page) {
         return articleInfoMapper.selectArticlePage(page);
     }
 }

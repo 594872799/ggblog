@@ -13,12 +13,12 @@
 
         <small class="mt-4 d-block">
             <#--标签-->
-            <#if (post.tags)?? && post.tags?size !=0>
+            <#if (post.tagList)?? && post.tagList?size !=0>
                 <span class="mr-3 font-weight-bold d-md-inline d-none">
                     <i class="fas fa-tags mr-1"></i>
-                    <#list post.tags as tag>
+                    <#list post.tagList as tag>
                         <a class="text-body mr-1"
-                           href="/tags/${tag.tag!}">${tag.tag!}</a>
+                           href="/tags/${tag!}">${tag!}</a>
                     </#list>
                 </span>
             </#if>
