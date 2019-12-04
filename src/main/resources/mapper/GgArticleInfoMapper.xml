@@ -14,6 +14,7 @@
         <result column="catagory_id" property="catagoryId"/>
         <result column="vister" property="vister"/>
         <result column="tags" property="tags"/>
+        <result column="summary" property="summary"/>
         <association property="article" javaType="com.liangwc.ggblog.entity.GgArticle">
             <id column="id" property="id"/>
             <result column="content" property="content"/>
@@ -21,10 +22,9 @@
     </resultMap>
 
     <select id="selectArticlePage" resultMap="articleMap">
-        SELECT a.id,a.title,a.vister,a.create_time,a.tags,b.content
-        FROM gg_article_info AS a,gg_article AS b
-        WHERE a.article_id = b.id
-        ORDER BY a.create_time desc
+        SELECT *
+        FROM gg_article_info
+        ORDER BY create_time desc
     </select>
 
     <select id="selectArticleById" resultMap="articleMap">

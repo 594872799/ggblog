@@ -73,4 +73,8 @@ public class GgArticleInfo implements Serializable {
      */
     private String tags;
 
+    /**
+     * 文章概要
+     */
+    private String summary;
 }

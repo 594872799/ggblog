@@ -9,7 +9,7 @@
             </h4>
         </a>
         <#--文章摘要-->
-        <span class="post-summary mt-4 d-block text-muted text-break">${post.article.content!}</span>
+        <span class="post-summary mt-4 d-block text-muted text-break">${post.summary!}</span>
 
         <small class="mt-4 d-block">
             <#--标签-->
