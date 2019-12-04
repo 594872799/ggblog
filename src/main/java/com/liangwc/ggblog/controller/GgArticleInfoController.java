@@ -30,7 +30,7 @@ import java.util.List;
  * @since 2019-11-29
  */
 @Controller
-@RequestMapping("/page")
+@RequestMapping("/article")
 public class GgArticleInfoController {
     @Autowired
     private GgBlogInfoService blogInfoService;
@@ -41,7 +41,14 @@ public class GgArticleInfoController {
     @Autowired
     private GgArticleInfoService articleInfoService;
 
-    @GetMapping("/{current}")
+    /**
+     * 首页文章列表部分
+     *
+     * @param current 当前页码
+     * @param model
+     * @return
+     */
+    @GetMapping("/page/{current}")
     public String articlePage(@PathVariable("current") int current, ModelMap model) {
         GgBlogInfo blogInfo = blogInfoService.getById(1);
         model.put("blogInfo", blogInfo);
@@ -64,6 +71,23 @@ public class GgArticleInfoController {
         }
         model.put("articlePage", page);
         return "/index";
+    }
+
+    @GetMapping("/{id}")
+    public String articleDetail(@PathVariable("id") int id, ModelMap model) {
+        ArticleVo vo = articleInfoService.selectArticleById(id);
+        model.put("post", vo);
+        List<String> tagList = new LinkedList<>();
+        for (String tag : vo.getTags().split(",")) {
+            tagList.add(tag);
+        }
+        vo.setTagList(tagList);
+
+        GgUser user = userService.getById(vo.getUserId());
+        model.put("user", user);
+        GgBlogInfo blogInfo = blogInfoService.getById(vo.getUserId());
+        model.put("blogInfo", blogInfo);
+        return "/post";
     }
 }
 

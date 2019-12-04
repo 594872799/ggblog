@@ -31,7 +31,6 @@
             <link rel="stylesheet" href="${static!}/css/category.css">
         </#if>
         <#--文章界面需要引入的CSS-->
-        <#if is_post??>
         <#--Github MarkDown的引入-->
             <link rel="stylesheet" href="${static!}/css/github-markdown.css">
             <link rel="stylesheet" href="${static!}/css/post.css">
@@ -39,7 +38,6 @@
             <link href="https://cdn.bootcss.com/highlight.js/9.15.10/styles/github.min.css" rel="stylesheet">
             <link href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
             <link href="https://cdn.bootcss.com/social-share.js/1.0.16/css/share.min.css" rel="stylesheet">
-        </#if>
         <#--日志界面的样式-->
         <#if is_journal??>
             <link href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
@@ -80,31 +78,42 @@
     <#if is_search??>
         <script type="text/javascript" src="${static!}/js/search.js"></script>
     </#if>
-    <#-- 额外配置功能-->
-    <#if is_post?? || is_sheet??>
+<#--    &lt;#&ndash; 额外配置功能&ndash;&gt;-->
+<#--    <#if is_post?? || is_sheet??>-->
         <script>
-            var displayReadProgress = <#if (settings.open_read_progress)??>${settings.open_read_progress?c}<#else>true</#if>;
-            var displayLineNumber = <#if (settings.line_number)??>${settings.line_number?c}<#else>true</#if>;
-            var enableCodeCopy = <#if (settings.code_copy)??>${settings.code_copy?c}<#else>true</#if>;
-            var displayCodeType = <#if (settings.code_type)??>${settings.code_type?c}<#else>true</#if>;
-            var displayMobileCatalog = <#if (settings.mobile_catalog)??>${settings.mobile_catalog?c}<#else>true</#if>;
-            var linkOnBlackPage = <#if (settings.link_on_blank_page)??>${settings.link_on_blank_page?c}<#else>true</#if>;
-            var enableShare = <#if (settings.open_share)??>${settings.open_share?c}<#else>true</#if>;
-            var twitterAccountShare = `${settings.twitter_account_share!}`;
-            var postTitle = `${post.title!}`;
-            var blogTitle = `${options.blog_title!}`;
-            var blogUrl = `${context!}`;
+            var displayReadProgress = true;
+            var displayLineNumber = true;
+            var enableCodeCopy = true;
+            var displayCodeType = true;
+            var displayMobileCatalog = true;
+            var linkOnBlackPage = true;
+            var enableShare = true;
+            var twitterAccountShare = true;
+            var postTitle = true;
+            var blogTitle = true;
+            var blogUrl = true;
+            <#--var displayReadProgress = <#if (settings.open_read_progress)??>${settings.open_read_progress?c}<#else>true</#if>;-->
+            <#--var displayLineNumber = <#if (settings.line_number)??>${settings.line_number?c}<#else>true</#if>;-->
+            <#--var enableCodeCopy = <#if (settings.code_copy)??>${settings.code_copy?c}<#else>true</#if>;-->
+            <#--var displayCodeType = <#if (settings.code_type)??>${settings.code_type?c}<#else>true</#if>;-->
+            <#--var displayMobileCatalog = <#if (settings.mobile_catalog)??>${settings.mobile_catalog?c}<#else>true</#if>;-->
+            <#--var linkOnBlackPage = <#if (settings.link_on_blank_page)??>${settings.link_on_blank_page?c}<#else>true</#if>;-->
+            <#--var enableShare = <#if (settings.open_share)??>${settings.open_share?c}<#else>true</#if>;-->
+            <#--var twitterAccountShare = `${settings.twitter_account_share!}`;-->
+            <#--var postTitle = `${post.title!}`;-->
+            <#--var blogTitle = `${options.blog_title!}`;-->
+            <#--var blogUrl = `${context!}`;-->
         </script>
         <script src="https://cdn.bootcss.com/social-share.js/1.0.16/js/social-share.min.js"></script>
-    </#if>
-    <#if is_post??>
+<#--    </#if>-->
+<#--    <#if is_post??>-->
         <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
     <#--代码高亮库-->
         <script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
         <script src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
         <script type="text/javascript" src="${static!}/js/post.js"></script>
-    </#if>
+<#--    </#if>-->
     <#if is_journal??>
         <script src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
         <script type="text/javascript" src="${static!}/js/journals.js"></script>

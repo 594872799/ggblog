@@ -11,11 +11,11 @@
             <i class="far fa-calendar mr-2"></i>${post.createTime?string["yyyy年MM月dd日"]!}
         </span>
         <span>
-            <i class="fas fa-eye mr-2"></i>${post.visits!}次浏览
+            <i class="fas fa-eye mr-2"></i>${post.vister!}次浏览
         </span>
     </small>
     <#-- 文章正文 -->
     <article class="markdown-body mt-4">
-        ${post.formatContent!}
+        ${post.article.content!}
     </article>
 </section>

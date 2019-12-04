@@ -7,5 +7,5 @@
 <#--分享-->
 <div class="social-share-cs mb-5"></div>
 
-<#-- Todo 用户评论部分,需要补充样式 -->
-<#include "comment.ftl"/>
+<#--&lt;#&ndash; Todo 用户评论部分,需要补充样式 &ndash;&gt;-->
+<#--<#include "comment.ftl"/>-->

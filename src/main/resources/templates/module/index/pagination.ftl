@@ -15,7 +15,7 @@
                     <#if hasPrevious>
                         <a class="page-link" href="${context!}" tabindex="-1" aria-disabled="true">&laquo;</a>
                     <#else>
-                        <a class="page-link" href="${context!}/page/${number-1}"
+                        <a class="page-link" href="${context!}/article/page/${number-1}"
                            aria-label="上一页">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
@@ -29,7 +29,7 @@
                         </li>
                     <#else>
                         <li class="page-item">
-                            <a class="page-link" href="${context!}/page/${index}">${index}</a>
+                            <a class="page-link" href="${context!}/article/page/${index}">${index}</a>
                         </li>
                     </#if>
                 </#list>
@@ -39,7 +39,7 @@
                         <a class="page-link" href="javascript:void(0)" tabindex="-1"
                            aria-disabled="true">&raquo;</a>
                     <#else>
-                        <a class="page-link" href="${context!}/page/${number+1}"
+                        <a class="page-link" href="${context!}/article/page/${number+1}"
                            aria-label="下一页">
                             <span aria-hidden="true">&raquo;</span>
                         </a>

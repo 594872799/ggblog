@@ -24,15 +24,10 @@ public class GgArticle implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
-    private Integer articleId;
+    private Integer id;
     /**
      * 正文
      */
     private String content;
-    /**
-     * 创建时间
-     */
-    private Date createTime;
-
 
 }

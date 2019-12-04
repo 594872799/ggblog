@@ -3,21 +3,34 @@
 <mapper namespace="com.liangwc.ggblog.mapper.GgArticleInfoMapper">
     <resultMap id="articleMap" type="com.liangwc.ggblog.vo.ArticleVo">
         <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="article_id" property="articleId"/>
         <result column="title" property="title"/>
+        <result column="status" property="status"/>
+        <result column="favor_num" property="favorNum"/>
+        <result column="comment_num" property="commentNum"/>
+        <result column="weigh" property="weigh"/>
         <result column="create_time" property="createTime"/>
+        <result column="catagory_id" property="catagoryId"/>
         <result column="vister" property="vister"/>
         <result column="tags" property="tags"/>
         <association property="article" javaType="com.liangwc.ggblog.entity.GgArticle">
-            <id column="article_id" property="articleId"/>
+            <id column="id" property="id"/>
             <result column="content" property="content"/>
-            <result column="create_time" property="createTime"/>
         </association>
     </resultMap>
 
     <select id="selectArticlePage" resultMap="articleMap">
         SELECT a.id,a.title,a.vister,a.create_time,a.tags,b.content
         FROM gg_article_info AS a,gg_article AS b
-        WHERE a.article_id = b.article_id
+        WHERE a.article_id = b.id
         ORDER BY a.create_time desc
+    </select>
+
+    <select id="selectArticleById" resultMap="articleMap">
+        SELECT a.*,b.content
+        FROM gg_article_info AS a,gg_article AS b
+        WHERE a.article_id = b.id
+        AND a.id = #{id}
     </select>
 </mapper>

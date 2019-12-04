@@ -3,7 +3,7 @@
 <#--一个列表项-->
     <div class="list-item px-1 py-4 mt-xl-0 mt-3 border-bottom">
         <#--文章标题-->
-        <a href="/archives/${post.title!}" class="text-body">
+        <a href="/article/${post.id!}" class="text-body">
             <h4 class="post-title font-weight-bold text-break">
                 ${post.title!}
             </h4>

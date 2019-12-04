@@ -28,4 +28,9 @@ public class GgArticleInfoServiceImpl extends ServiceImpl<GgArticleInfoMapper, G
     public MyPage<ArticleVo> selectArticlePage(Page page) {
         return articleInfoMapper.selectArticlePage(page);
     }
+
+    @Override
+    public ArticleVo selectArticleById(int id) {
+        return articleInfoMapper.selectArticleById(id);
+    }
 }

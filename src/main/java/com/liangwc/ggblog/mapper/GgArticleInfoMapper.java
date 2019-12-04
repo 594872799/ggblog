@@ -19,4 +19,6 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface GgArticleInfoMapper extends BaseMapper<GgArticleInfo> {
     MyPage<ArticleVo> selectArticlePage(Page page);
+
+    ArticleVo selectArticleById(int id);
 }

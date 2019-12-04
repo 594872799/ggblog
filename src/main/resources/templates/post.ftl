@@ -1,15 +1,13 @@
 <#--全文展示界面 ok-->
 <#include "module/layout.ftl">
-<@layout title="${post.title!} | ${options.blog_title!}"
-keywords="${options.seo_keywords!}"
-description="${post.title!}">
+<@layout title="${post.title!}" description="${post.title!}">
 
 <#--阅读进度-->
-    <#if (settings.open_read_progress)?? && settings.open_read_progress?c == 'true'>
+<#--    <#if (settings.open_read_progress)?? && settings.open_read_progress?c == 'true'>-->
         <div id="readProgress">
             <div class="read-progress-bar" role="progressbar" style="width: 0"></div>
         </div>
-    </#if>
+<#--    </#if>-->
 
 <#-- 主容器 -->
     <div class="container px-lg-2 pb-3 bg-white">
