@@ -5,13 +5,11 @@ import com.baomidou.mybatisplus.core.conditions.AbstractWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.liangwc.ggblog.entity.GgArticleInfo;
 import com.liangwc.ggblog.entity.GgBlogInfo;
-import com.liangwc.ggblog.entity.GgSetting;
 import com.liangwc.ggblog.entity.GgUser;
 import com.liangwc.ggblog.service.GgArticleInfoService;
 import com.liangwc.ggblog.service.GgBlogInfoService;
 import com.liangwc.ggblog.service.GgSettingService;
 import com.liangwc.ggblog.service.GgUserService;
-import com.liangwc.ggblog.util.MyPage;
 import com.liangwc.ggblog.vo.ArticleVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -53,28 +52,9 @@ public class GgArticleInfoController {
      * @return
      */
     @GetMapping("/page/{current}")
-    public String articlePage(@PathVariable("current") int current, ModelMap model) {
-        GgBlogInfo blogInfo = blogInfoService.getById(1);
-        model.put("blogInfo", blogInfo);
-
-        GgUser user = userService.getById(1);
-        model.put("user", user);
-
-        GgSetting setting = settingService.getById(1);
-        model.put("settings", setting);
-
-        MyPage<ArticleVo> myPage = new MyPage<ArticleVo>(current, 10);
-        MyPage<ArticleVo> page = articleInfoService.selectArticlePage(myPage);
-        page.setTotalPage(page.getPages());
-        for (ArticleVo vo : page.getRecords()) {
-            List<String> tagList = new LinkedList<>();
-            for (String tag : vo.getTags().split(",")) {
-                tagList.add(tag);
-            }
-            vo.setTagList(tagList);
-        }
-        model.put("articlePage", page);
-        return "/index";
+    public ModelAndView articlePage(@PathVariable("current") int current, ModelMap model) {
+        model.addAttribute("current", current);
+        return new ModelAndView("redirect:/index", model);
     }
 
     @GetMapping("/{id}")
@@ -101,7 +81,7 @@ public class GgArticleInfoController {
                 .orderBy(true, false, "create_time")
                 .last(true, "limit 1");
         GgArticleInfo preArticle = articleInfoService.getOne(preWrapper);
-        model.put("prePost",preArticle);
+        model.put("prePost", preArticle);
         // 下一篇
         AbstractWrapper nextWrapper = new QueryWrapper()
                 .select("id", "title")
@@ -109,7 +89,7 @@ public class GgArticleInfoController {
                 .orderBy(true, true, "create_time")
                 .last(true, "limit 1");
         GgArticleInfo nextArticle = articleInfoService.getOne(nextWrapper);
-        model.put("nextPost",nextArticle);
+        model.put("nextPost", nextArticle);
 
 
         GgUser user = userService.getById(vo.getUserId());
