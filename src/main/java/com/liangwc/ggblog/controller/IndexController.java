@@ -15,6 +15,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -34,7 +35,7 @@ public class IndexController {
     private GgArticleInfoService articleInfoService;
 
     @GetMapping("/index")
-    public String index(@ModelAttribute("current") int current, ModelMap model) {
+    public String index(ModelMap model, HttpServletRequest request) {
         GgBlogInfo blogInfo = blogInfoService.getById(1);
         model.put("blogInfo", blogInfo);
 
@@ -43,6 +44,13 @@ public class IndexController {
 
         GgSetting setting = settingService.getById(1);
         model.put("settings", setting);
+
+        int current;
+        if(request.getParameter("current") == null ){
+            current = 0;
+        }else{
+            current = Integer.valueOf(request.getParameter("current"));
+        }
 
         MyPage<ArticleVo> myPage = new MyPage<ArticleVo>(current, 10);
         MyPage<ArticleVo> page = articleInfoService.selectArticlePage(myPage);
