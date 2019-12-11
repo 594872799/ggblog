@@ -2,7 +2,7 @@
 <section id="changePost" class="mb-5">
     <div class="d-flex px-1 flex-md-row flex-column">
         <#if prePost??>
-            <a id="prePost" class="mr-auto font-weight-bold" href="/archives/${prePost.url!}">
+            <a id="prePost" class="mr-auto font-weight-bold" href="/article/${prePost.id!}">
                 <span class="icon mr-2 d-md-inline d-none">
                     <i class="fas fa-angle-double-left"></i>
                 </span>
@@ -23,7 +23,7 @@
             </a>
         </#if>
         <#if nextPost??>
-            <a id="nextPost" class="font-weight-bold mt-md-0 mt-3" href="/archives/${nextPost.url!}">
+            <a id="nextPost" class="font-weight-bold mt-md-0 mt-3" href="/article/${nextPost.id!}">
                 <span class="icon mr-2 d-md-none d-inline">
                     下一篇：
                 </span>
