@@ -26,12 +26,6 @@ public class PostDirective implements TemplateDirectiveModel {
         TemplateScalarModel tms = (TemplateScalarModel) map.get("method");
         String method = tms.getAsString();
         switch (method) {
-            case "list": {
-                int count = articleInfoService.count(null);
-                DefaultObjectWrapperBuilder builder = new DefaultObjectWrapperBuilder(Configuration.VERSION_2_3_25);
-                environment.setVariable("count", builder.build().wrap(count));
-                templateDirectiveBody.render(environment.getOut());
-            }
             case "listByCategoryId": {
                 TemplateScalarModel model = (TemplateScalarModel) map.get("categoryId");
                 int categoryId = Integer.parseInt(model.getAsString());
@@ -41,6 +35,12 @@ public class PostDirective implements TemplateDirectiveModel {
                 List<GgArticleInfo> list = articleInfoService.list(wrapper);
                 DefaultObjectWrapperBuilder builder = new DefaultObjectWrapperBuilder(Configuration.VERSION_2_3_25);
                 environment.setVariable("recommend", builder.build().wrap(list));
+                templateDirectiveBody.render(environment.getOut());
+            }
+            case "count": {
+                int count = articleInfoService.count(null);
+                DefaultObjectWrapperBuilder builder = new DefaultObjectWrapperBuilder(Configuration.VERSION_2_3_25);
+                environment.setVariable("count", builder.build().wrap(count));
                 templateDirectiveBody.render(environment.getOut());
             }
         }
