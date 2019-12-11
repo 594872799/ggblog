@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * <p>
  * 前端控制器
@@ -27,13 +29,4 @@ public class GgTagsController {
     @Autowired
     private GgArticleInfoService articleInfoService;
 
-
-    @GetMapping("/{tagName}")
-    public String selectByTags(@PathVariable("tagName") String tag, ModelMap model) {
-        int current = (int) model.getAttribute("current");
-        MyPage<ArticleVo> myPage = new MyPage<ArticleVo>(current, 10);
-        MyPage<ArticleVo> articleList = articleInfoService.selectArticlePage(myPage);
-
-        return "/tag";
-    }
 }

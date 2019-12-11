@@ -10,6 +10,7 @@ import com.liangwc.ggblog.service.GgArticleInfoService;
 import com.liangwc.ggblog.service.GgBlogInfoService;
 import com.liangwc.ggblog.service.GgSettingService;
 import com.liangwc.ggblog.service.GgUserService;
+import com.liangwc.ggblog.util.MyPage;
 import com.liangwc.ggblog.vo.ArticleVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -33,7 +35,6 @@ import java.util.List;
  * @since 2019-11-29
  */
 @Controller
-@RequestMapping("/article")
 public class GgArticleInfoController {
     @Autowired
     private GgBlogInfoService blogInfoService;
@@ -51,16 +52,16 @@ public class GgArticleInfoController {
      * @param model
      * @return
      */
-    @GetMapping("/page/{current}")
+    @GetMapping("/article/page/{current}")
     public ModelAndView articlePage(@PathVariable("current") int current, ModelMap model) {
         model.addAttribute("current", current);
         return new ModelAndView("redirect:/index", model);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/article/{id}")
     @Transactional
     public String articleDetail(@PathVariable("id") int id, ModelMap model) {
-        ArticleVo vo = articleInfoService.selectArticleById(id);
+        ArticleVo vo = articleInfoService.getArticleById(id);
         model.put("post", vo);
         List<String> tagList = new LinkedList<>();
         for (String tag : vo.getTags().split(",")) {
@@ -97,6 +98,29 @@ public class GgArticleInfoController {
         GgBlogInfo blogInfo = blogInfoService.getById(vo.getUserId());
         model.put("blogInfo", blogInfo);
         return "/post";
+    }
+
+    @GetMapping("/tags/{tagName}")
+    public String selectByTags(@PathVariable("tagName") String tag, ModelMap model, HttpServletRequest request) {
+
+        int current = 1;
+        if (null != request.getParameter("current")) {
+            current = Integer.parseInt(request.getParameter("current"));
+        }
+        MyPage<ArticleVo> myPage = new MyPage<>(current, 10);
+        MyPage<ArticleVo> articleList = articleInfoService.getArticleByTag(myPage, tag);
+        articleList.setTotalPage(articleList.getPages());
+
+        model.put("title", tag);
+
+        model.put("posts", articleList);
+
+        GgUser user = userService.getById(1);
+        model.put("user", user);
+        GgBlogInfo blogInfo = blogInfoService.getById(1);
+        model.put("blogInfo", blogInfo);
+
+        return "/tag";
     }
 }
 

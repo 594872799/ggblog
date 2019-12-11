@@ -21,4 +21,6 @@ public interface GgArticleInfoMapper extends BaseMapper<GgArticleInfo> {
     MyPage<ArticleVo> selectArticlePage(Page page);
 
     ArticleVo selectArticleById(int id);
+
+    MyPage<ArticleVo> selectArticleByTag(Page page,String tag);
 }

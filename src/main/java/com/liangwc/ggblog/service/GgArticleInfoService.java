@@ -16,7 +16,9 @@ import com.liangwc.ggblog.vo.ArticleVo;
  * @since 2019-11-29
  */
 public interface GgArticleInfoService extends IService<GgArticleInfo> {
-    MyPage<ArticleVo> selectArticlePage(Page page);
+    MyPage<ArticleVo> getArticlePage(Page page);
 
-    ArticleVo selectArticleById(int id);
+    ArticleVo getArticleById(int id);
+
+    MyPage<ArticleVo> getArticleByTag(Page page,String tag);
 }

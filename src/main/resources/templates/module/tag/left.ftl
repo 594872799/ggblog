@@ -1,5 +1,5 @@
 <#--标签界面左侧ok-->
-<#if (posts.content)?? && posts.content?size lte 0>
+<#if posts?? && posts?size lte 0>
 <#--无结果-->
     <div class="alert alert-danger mt-4" role="alert">
         <i class="far fa-tired mr-2"></i>
@@ -16,17 +16,17 @@
 <#--用户位置-->
     <div class="alert alert-secondary mt-4 mb-2" role="alert">
         <i class="fa fa-location-arrow mr-2" aria-hidden="true"></i>
-        当前位于"${tag.name!}"标签下
+        当前位于"${title!}"标签下
     </div>
 <#--左边的文章列表-->
     <#include "../index/list_item.ftl"/>
 <#--列表项-->
-    <#list posts.content as post>
+    <#list posts.records as post>
         <@listItem post=post />
     </#list>
 <#--分页-->
     <#include "pagination.ftl">
-    <@pagination posts=posts rainbow=rainbow slugName=tag.slugName/>
+    <@pagination posts=posts />
 </#if>
 
 

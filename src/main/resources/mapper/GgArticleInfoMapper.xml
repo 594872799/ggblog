@@ -33,4 +33,8 @@
         WHERE a.article_id = b.id
         AND a.id = #{id}
     </select>
+
+    <select id="selectArticleByTag" resultType="com.liangwc.ggblog.entity.GgArticleInfo">
+        SELECT * FROM gg_article_info where tags like concat('%',#{tag},'%')
+    </select>
 </mapper>

@@ -53,7 +53,7 @@ public class IndexController {
         }
 
         MyPage<ArticleVo> myPage = new MyPage<ArticleVo>(current, 10);
-        MyPage<ArticleVo> page = articleInfoService.selectArticlePage(myPage);
+        MyPage<ArticleVo> page = articleInfoService.getArticlePage(myPage);
         page.setTotalPage(page.getPages());
         for (ArticleVo vo : page.getRecords()) {
             List<String> tagList = new LinkedList<>();
