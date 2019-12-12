@@ -27,4 +27,6 @@ public interface GgArticleInfoService extends IService<GgArticleInfo> {
     List<ArticleVo> getCategory();
 
     MyPage<ArticleVo> getArticleByCategoty(Page page, int categoryId);
+
+    MyPage<ArticleVo> search(Page page, String keyword);
 }

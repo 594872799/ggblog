@@ -75,9 +75,9 @@
     <#if is_archives?? || is_tags?? || is_categories??>
         <script type="text/javascript" src="${static!}/js/navigation.js"></script>
     </#if>
-    <#if is_search??>
-        <script type="text/javascript" src="${static!}/js/search.js"></script>
-    </#if>
+
+    <script type="text/javascript" src="${static!}/js/search.js"></script>
+
 <#--    &lt;#&ndash; 额外配置功能&ndash;&gt;-->
 <#--    <#if is_post?? || is_sheet??>-->
         <script>

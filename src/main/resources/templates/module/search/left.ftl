@@ -25,9 +25,9 @@
 <#--左边的文章列表-->
 <#include "../index/list_item.ftl"/>
 <#--列表项-->
-<#list posts.content as post>
+<#list articlePage.records as post>
     <@listItem post=post />
 </#list>
 <#--分页-->
 <#include "pagination.ftl">
-<@pagination posts=posts rainbow=rainbow keyword=keyword/>
+<@pagination posts=articlePage/>

@@ -50,4 +50,13 @@
     <select id="selectCategory" resultType="java.util.HashMap">
         select b.id,b.name,count(a.id) as total from gg_article_info AS a,gg_catagory AS b where a.catagory_id = b.id group by b.name,b.id
     </select>
+
+    <select id="search" resultMap="articleMap">
+        select a.* from gg_article_info as a,gg_article as b
+        where (
+            a.title like concat('%',#{keyword},'%')
+            or a.summary like concat('%',#{keyword},'%')
+            or b.content like concat('%',#{keyword},'%')
+        ) and a.article_id = b.id
+    </select>
 </mapper>

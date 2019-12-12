@@ -49,4 +49,9 @@ public class GgArticleInfoServiceImpl extends ServiceImpl<GgArticleInfoMapper, G
     public MyPage<ArticleVo> getArticleByCategoty(Page page, int categoryId) {
         return articleInfoMapper.selectArticleByCategory(page, categoryId);
     }
+
+    @Override
+    public MyPage<ArticleVo> search(Page page,String keyword) {
+        return articleInfoMapper.search(page,keyword);
+    }
 }
