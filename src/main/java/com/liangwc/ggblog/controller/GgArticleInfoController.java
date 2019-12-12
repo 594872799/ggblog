@@ -8,7 +8,6 @@ import com.liangwc.ggblog.entity.GgBlogInfo;
 import com.liangwc.ggblog.entity.GgUser;
 import com.liangwc.ggblog.service.GgArticleInfoService;
 import com.liangwc.ggblog.service.GgBlogInfoService;
-import com.liangwc.ggblog.service.GgSettingService;
 import com.liangwc.ggblog.service.GgUserService;
 import com.liangwc.ggblog.util.MyPage;
 import com.liangwc.ggblog.util.Utils;
@@ -18,7 +17,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.ModelAndView;
