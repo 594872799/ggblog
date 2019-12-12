@@ -17,7 +17,7 @@
                         </div>
                     </#list>
                     <div class="tag">
-                        <a href="/tags" class="text-muted">
+                        <a href="/index" class="text-muted">
                             <span class="tag-left">所有标签</span>
                             <span class="tag-right">
                             <@tagTag method="count">

@@ -36,12 +36,14 @@ public class PostDirective implements TemplateDirectiveModel {
                 DefaultObjectWrapperBuilder builder = new DefaultObjectWrapperBuilder(Configuration.VERSION_2_3_25);
                 environment.setVariable("recommend", builder.build().wrap(list));
                 templateDirectiveBody.render(environment.getOut());
+                break;
             }
             case "count": {
                 int count = articleInfoService.count(null);
                 DefaultObjectWrapperBuilder builder = new DefaultObjectWrapperBuilder(Configuration.VERSION_2_3_25);
                 environment.setVariable("count", builder.build().wrap(count));
                 templateDirectiveBody.render(environment.getOut());
+                break;
             }
         }
 

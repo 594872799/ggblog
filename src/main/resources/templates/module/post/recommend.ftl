@@ -1,6 +1,6 @@
 <#--文章界面推荐部分ok-->
 <#if (post.catagoryId)??>
-    <@postTag method="listByCategoryId" id="${post.id}" categoryId="${post.catagoryId!}">
+    <@postTag method="listByCategoryId" categoryId="${post.catagoryId!}">
         <#if recommend?? && recommend?size != 0>
             <section id="recommend" class="mb-lg-4 mb-5">
                 <div class="card">
