@@ -11,6 +11,7 @@ import com.liangwc.ggblog.service.GgBlogInfoService;
 import com.liangwc.ggblog.service.GgSettingService;
 import com.liangwc.ggblog.service.GgUserService;
 import com.liangwc.ggblog.util.MyPage;
+import com.liangwc.ggblog.util.Utils;
 import com.liangwc.ggblog.vo.ArticleVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -109,13 +110,7 @@ public class GgArticleInfoController {
         MyPage<ArticleVo> articleList = articleInfoService.getArticleByTag(myPage, tag);
         articleList.setTotalPage(articleList.getPages());
 
-        for (ArticleVo vo : articleList.getRecords()) {
-            List<String> tagList = new LinkedList<>();
-            for (String tags : vo.getTags().split(",")) {
-                tagList.add(tags);
-            }
-            vo.setTagList(tagList);
-        }
+        Utils.splitTag(articleList.getRecords());
 
         model.put("title", tag);
 

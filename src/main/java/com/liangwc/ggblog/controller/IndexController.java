@@ -8,6 +8,7 @@ import com.liangwc.ggblog.service.GgBlogInfoService;
 import com.liangwc.ggblog.service.GgSettingService;
 import com.liangwc.ggblog.service.GgUserService;
 import com.liangwc.ggblog.util.MyPage;
+import com.liangwc.ggblog.util.Utils;
 import com.liangwc.ggblog.vo.ArticleVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -46,23 +47,17 @@ public class IndexController {
         model.put("settings", setting);
 
         int current;
-        if(request.getParameter("current") == null ){
+        if (request.getParameter("current") == null) {
             current = 0;
-        }else{
+        } else {
             current = Integer.valueOf(request.getParameter("current"));
         }
 
         MyPage<ArticleVo> myPage = new MyPage<ArticleVo>(current, 10);
-        MyPage<ArticleVo> page = articleInfoService.getArticlePage(myPage);
-        page.setTotalPage(page.getPages());
-        for (ArticleVo vo : page.getRecords()) {
-            List<String> tagList = new LinkedList<>();
-            for (String tag : vo.getTags().split(",")) {
-                tagList.add(tag);
-            }
-            vo.setTagList(tagList);
-        }
-        model.put("articlePage", page);
+        MyPage<ArticleVo> articleList = articleInfoService.getArticlePage(myPage);
+        articleList.setTotalPage(articleList.getPages());
+        Utils.splitTag(articleList.getRecords());
+        model.put("articlePage", articleList);
         return "/index";
     }
 

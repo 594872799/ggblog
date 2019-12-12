@@ -7,6 +7,7 @@ import com.liangwc.ggblog.service.GgArticleInfoService;
 import com.liangwc.ggblog.service.GgBlogInfoService;
 import com.liangwc.ggblog.service.GgUserService;
 import com.liangwc.ggblog.util.MyPage;
+import com.liangwc.ggblog.util.Utils;
 import com.liangwc.ggblog.vo.ArticleVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
@@ -49,13 +50,7 @@ public class GgCatagoryController {
         MyPage<ArticleVo> articleList = articleInfoService.getArticleByCategoty(myPage,categoryId);
         articleList.setTotalPage(articleList.getPages());
 
-        for (ArticleVo vo : articleList.getRecords()) {
-            List<String> tagList = new LinkedList<>();
-            for (String tag : vo.getTags().split(",")) {
-                tagList.add(tag);
-            }
-            vo.setTagList(tagList);
-        }
+        Utils.splitTag(articleList.getRecords());
 
         model.put("title",articleList.getRecords().get(0).getCatagory().getName());
 
