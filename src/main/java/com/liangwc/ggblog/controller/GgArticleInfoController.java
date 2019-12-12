@@ -41,8 +41,6 @@ public class GgArticleInfoController {
     @Autowired
     private GgUserService userService;
     @Autowired
-    private GgSettingService settingService;
-    @Autowired
     private GgArticleInfoService articleInfoService;
 
     /**
@@ -110,6 +108,14 @@ public class GgArticleInfoController {
         MyPage<ArticleVo> myPage = new MyPage<>(current, 10);
         MyPage<ArticleVo> articleList = articleInfoService.getArticleByTag(myPage, tag);
         articleList.setTotalPage(articleList.getPages());
+
+        for (ArticleVo vo : articleList.getRecords()) {
+            List<String> tagList = new LinkedList<>();
+            for (String tags : vo.getTags().split(",")) {
+                tagList.add(tags);
+            }
+            vo.setTagList(tagList);
+        }
 
         model.put("title", tag);
 

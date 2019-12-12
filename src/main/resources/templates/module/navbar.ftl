@@ -46,7 +46,7 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
                                 <#list categories as categorie>
-                                    <a class="dropdown-item" href="/categories/${categorie.url}">${categorie.name}
+                                    <a class="dropdown-item" href="/categories/${categorie.id}">${categorie.name}
                                         (${categorie.total!})</a>
                                 </#list>
                                 <a class="dropdown-item" href="/index">

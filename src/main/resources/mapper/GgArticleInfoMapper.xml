@@ -19,7 +19,7 @@
             <id column="id" property="id"/>
             <result column="content" property="content"/>
         </association>
-        <association property="catagoryId" javaType="com.liangwc.ggblog.entity.GgCatagory">
+        <association property="catagory" javaType="com.liangwc.ggblog.entity.GgCatagory">
             <id column="id" property="id"/>
             <result column="name" property="name"/>
             <result column="url" property="url"/>
@@ -39,11 +39,15 @@
         AND a.id = #{id}
     </select>
 
-    <select id="selectArticleByTag" resultType="com.liangwc.ggblog.entity.GgArticleInfo">
+    <select id="selectArticleByTag" resultType="com.liangwc.ggblog.vo.ArticleVo">
         SELECT * FROM gg_article_info where tags like concat('%',#{tag},'%')
     </select>
 
+    <select id="selectArticleByCategory" resultMap="articleMap">
+        SELECT a.*,b.name FROM gg_article_info as a,gg_catagory as b where catagory_id = #{categoryId} and a.catagory_id = b.id
+    </select>
+
     <select id="selectCategory" resultType="java.util.HashMap">
-        select b.name,b.url,count(a.id) as total from gg_article_info AS a,gg_catagory AS b where a.catagory_id = b.id group by b.name,b.url
+        select b.id,b.name,count(a.id) as total from gg_article_info AS a,gg_catagory AS b where a.catagory_id = b.id group by b.name,b.id
     </select>
 </mapper>

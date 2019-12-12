@@ -1,6 +1,5 @@
 package com.liangwc.ggblog.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.liangwc.ggblog.entity.GgArticleInfo;
@@ -44,5 +43,10 @@ public class GgArticleInfoServiceImpl extends ServiceImpl<GgArticleInfoMapper, G
     @Override
     public List<ArticleVo> getCategory() {
         return articleInfoMapper.selectCategory();
+    }
+
+    @Override
+    public MyPage<ArticleVo> getArticleByCategoty(Page page, int categoryId) {
+        return articleInfoMapper.selectArticleByCategory(page, categoryId);
     }
 }
