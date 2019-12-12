@@ -8,6 +8,8 @@ import com.liangwc.ggblog.util.MyPage;
 import com.liangwc.ggblog.vo.ArticleVo;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * <p>
  * Mapper 接口
@@ -22,5 +24,7 @@ public interface GgArticleInfoMapper extends BaseMapper<GgArticleInfo> {
 
     ArticleVo selectArticleById(int id);
 
-    MyPage<ArticleVo> selectArticleByTag(Page page,String tag);
+    MyPage<ArticleVo> selectArticleByTag(Page page, String tag);
+
+    List<ArticleVo> selectCategory();
 }

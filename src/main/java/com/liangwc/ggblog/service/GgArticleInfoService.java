@@ -7,6 +7,8 @@ import com.liangwc.ggblog.entity.GgArticleInfo;
 import com.liangwc.ggblog.util.MyPage;
 import com.liangwc.ggblog.vo.ArticleVo;
 
+import java.util.List;
+
 /**
  * <p>
  * 服务类
@@ -20,5 +22,7 @@ public interface GgArticleInfoService extends IService<GgArticleInfo> {
 
     ArticleVo getArticleById(int id);
 
-    MyPage<ArticleVo> getArticleByTag(Page page,String tag);
+    MyPage<ArticleVo> getArticleByTag(Page page, String tag);
+
+    List<ArticleVo> getCategory();
 }

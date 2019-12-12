@@ -11,6 +11,8 @@ import com.liangwc.ggblog.vo.ArticleVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * <p>
  * 服务实现类
@@ -35,7 +37,12 @@ public class GgArticleInfoServiceImpl extends ServiceImpl<GgArticleInfoMapper, G
     }
 
     @Override
-    public MyPage<ArticleVo> getArticleByTag(Page page,String tag) {
+    public MyPage<ArticleVo> getArticleByTag(Page page, String tag) {
         return articleInfoMapper.selectArticleByTag(page, tag);
+    }
+
+    @Override
+    public List<ArticleVo> getCategory() {
+        return articleInfoMapper.selectCategory();
     }
 }

@@ -1,7 +1,11 @@
 package com.liangwc.ggblog.freemarker;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.liangwc.ggblog.entity.GgArticleInfo;
 import com.liangwc.ggblog.entity.GgCatagory;
+import com.liangwc.ggblog.service.GgArticleInfoService;
 import com.liangwc.ggblog.service.GgCatagoryService;
+import com.liangwc.ggblog.vo.ArticleVo;
 import freemarker.core.Environment;
 import freemarker.template.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +23,8 @@ import java.util.Map;
 public class CatagoryDirective implements TemplateDirectiveModel {
     @Autowired
     private GgCatagoryService catagoryService;
+    @Autowired
+    private GgArticleInfoService articleInfoService;
 
     @Override
     public void execute(Environment environment, Map map, TemplateModel[] templateModels, TemplateDirectiveBody templateDirectiveBody) throws TemplateException, IOException {
@@ -26,9 +32,10 @@ public class CatagoryDirective implements TemplateDirectiveModel {
         String method = tms.getAsString();
         switch (method) {
             case "list": {
-                List<GgCatagory> catagories = catagoryService.list(null);
+//                List<GgCatagory> catagories = catagoryService.list(null);
+                List<ArticleVo> articleVos = articleInfoService.getCategory();
                 DefaultObjectWrapperBuilder builder = new DefaultObjectWrapperBuilder(Configuration.VERSION_2_3_25);
-                environment.setVariable("categories", builder.build().wrap(catagories));
+                environment.setVariable("categories", builder.build().wrap(articleVos));
                 templateDirectiveBody.render(environment.getOut());
                 break;
             }

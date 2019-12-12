@@ -47,9 +47,9 @@
 
                                 <#list categories as categorie>
                                     <a class="dropdown-item" href="/categories/${categorie.url}">${categorie.name}
-                                        (${categorie.count!})</a>
+                                        (${categorie.total!})</a>
                                 </#list>
-                                <a class="dropdown-item" href="/categories">
+                                <a class="dropdown-item" href="/index">
                                     全部分类
                                     (<@postTag method="count">
                                         ${count!}

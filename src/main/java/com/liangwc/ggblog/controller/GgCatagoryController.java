@@ -14,7 +14,7 @@ import org.springframework.stereotype.Controller;
  * @since 2019-11-29
  */
 @Controller
-@RequestMapping("/ggCatagory")
+@RequestMapping("/categories")
 public class GgCatagoryController {
 
 }
