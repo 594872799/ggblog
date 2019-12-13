@@ -30,18 +30,10 @@ public class GgCatagory implements Serializable {
      */
     private String name;
     /**
-     * url
-     */
-    private String url;
-    /**
      * 是否启用
      */
     private Integer status;
 
-    /**
-     * 文章数量
-     */
-    private Integer count;
 
 
 }

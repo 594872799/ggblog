@@ -1,8 +1,8 @@
 <#--链接页面OK-->
 <#include "module/layout.ftl">
-<@layout title="链接 | ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
+<@layout title="链接 | ${blogInfo.blogTitle!}" description="${blogInfo.blogDesc!}">
 
-    <link rel="stylesheet" href="${static!}/source/css/links.css">
+    <link rel="stylesheet" href="${static!}/css/links.css">
 
 <#--这个列表初始化隐藏，用JS来做显示操作-->
     <#include "module/links/hide_list.ftl"/>
@@ -30,4 +30,4 @@
         </div>
     </div>
 </@layout>
-<script src="${static!}/source/js/links.js"></script>
+<script src="${static!}/js/links.js"></script>

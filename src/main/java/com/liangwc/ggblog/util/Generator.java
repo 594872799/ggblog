@@ -22,7 +22,7 @@ public class Generator {
     public static void main(String[] args) {
         String packageName = "com.liangwc.ggblog";
         boolean serviceNameStartWithI = false;
-        generateByTables(serviceNameStartWithI, packageName, "liangwc", "ggbolg", "gg_tags");
+        generateByTables(serviceNameStartWithI, packageName, "liangwc", "ggbolg", "gg_link");
     }
 
     private static void generateByTables(boolean serviceNameStartWithI, String packageName, String auth, String database, String... tableNames) {
