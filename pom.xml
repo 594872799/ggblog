@@ -12,6 +12,7 @@
     <artifactId>ggblog</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>ggblog</name>
+    <packaging>war</packaging>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -75,6 +76,7 @@
     </dependencies>
 
     <build>
+        <finalName>ggblog</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

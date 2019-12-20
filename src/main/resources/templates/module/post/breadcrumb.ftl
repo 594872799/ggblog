@@ -3,7 +3,7 @@
     <nav aria-label="breadcrumb" class="pt-4">
         <ol class="breadcrumb bg-transparent pl-lg-1 pl-2">
             <li class="breadcrumb-item">
-                <a href="${context!}" class="text-dark font-weight-bold">
+                <a href="/index" class="text-dark font-weight-bold">
                     <i class="fas fa-home"></i> 首页
                 </a>
             </li>
